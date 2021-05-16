@@ -4,10 +4,10 @@ pygame.init()
 
 win_size = 700
 win = pygame.display.set_mode((win_size,win_size))
-background_color = (0,0,0)
+background_color = (255,255,255)
 
-font = pygame.font.SysFont('arial', 32)
-
+font0 = pygame.font.SysFont('arial', 32)
+red = (255,0,0)
 def draw_text(text,font,color,frame,x,y):
     textobj = font.render(text, 1, color)
     textrect = textobj.get_rect()
@@ -25,8 +25,8 @@ menu_color = (0,0,0)
 
 def menu(win):
     running = True
-    events = pygame.event.get()
     while running:
+        events = pygame.event.get()
         for event in events:
             if event.type == pygame.QUIT:
                 exit()
@@ -34,6 +34,8 @@ def menu(win):
                 if event.key == pygame.K_ESCAPE:
                     running = False
         win.fill(menu_color)
+        draw_text('Menu', font0, red, win, 300,300)
+        draw_grid(700)
         pygame.display.update()
         
 
@@ -46,8 +48,7 @@ while True:
                 if event.key == pygame.K_ESCAPE:
                     menu(win)
 
-    draw_text('Menu', font, (255,0,0), win, 300,300)
-    draw_grid(700)
+   
 
 
     win.fill(background_color)
