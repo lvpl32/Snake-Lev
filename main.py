@@ -35,8 +35,7 @@ def menu(win):
                     running = False
         win.fill(menu_color)
         pygame.display.update()
-        draw_text('Menu', font, (255,0,0), win, 300,300)
-        draw_grid(700)
+        
 
 
 
@@ -46,6 +45,9 @@ while True:
         if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     menu(win)
+
+    draw_text('Menu', font, (255,0,0), win, 300,300)
+    draw_grid(700)
 
 
     win.fill(background_color)
