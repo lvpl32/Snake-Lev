@@ -14,6 +14,13 @@ def draw_text(text,font,color,frame,x,y):
     textrect.topleft = (x,y)
     frame.blit(textobj,textrect)
 
+
+def draw_grid(win_size):
+    for i in range(0, win_size, 50):
+        pygame.draw.line(win, (255,255,255), (0,i), (win_size, i))
+        pygame.draw.line(win, (255,255,255), (i,0), (i, win_size))
+
+
 menu_color = (0,0,0)
 
 def menu(win):
@@ -29,6 +36,7 @@ def menu(win):
         win.fill(menu_color)
         pygame.display.update()
         draw_text('Menu', font, (255,0,0), win, 300,300)
+        draw_grid(700)
 
 
 
