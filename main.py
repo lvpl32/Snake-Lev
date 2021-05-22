@@ -1,55 +1,63 @@
 import pygame
+import sys
+import random
+import time
+
+
 
 pygame.init()
 
-win_size = 700
-win = pygame.display.set_mode((win_size,win_size))
-background_color = (255,255,255)
 
-font0 = pygame.font.SysFont('arial', 32)
-red = (255,0,0)
-def draw_text(text,font,color,frame,x,y):
-    textobj = font.render(text, 1, color)
-    textrect = textobj.get_rect()
-    textrect.topleft = (x,y)
-    frame.blit(textobj,textrect)
+class Game():
+    def __init__(self):
+        self.scr_width = 720
+        self.scr_height = 460
 
 
-def draw_grid(win_size):
-    for i in range(0, win_size, 50):
-        pygame.draw.line(win, (255,255,255), (0,i), (win_size, i))
-        pygame.draw.line(win, (255,255,255), (i,0), (i, win_size))
+
+        self.red = (255,0,0)
+        self.green = (0,255,0)
+        self.white = (255,255,255)
+        self.black = (0,0,0)
 
 
-menu_color = (0,0,0)
+        self.fps = pygame.time.Clock()
 
-def menu(win):
-    running = True
-    while running:
-        events = pygame.event.get()
-        for event in events:
-            if event.type == pygame.QUIT:
-                exit()
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    running = False
-        win.fill(menu_color)
-        draw_text('Menu', font0, red, win, 300,300)
-        draw_grid(700)
-        pygame.display.update()
+        def surface(self):
+            self.play_surface = pygame.display.set_mode((self.scr_width,self.scr_height))
+            pygame.display.set_caption('Snake')
+
+        def event_loop(self,change_to):
+
+            for event in pygame.event.get():
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RIGHT or event.key == ord('d'):
+                        change_to = "RIGHT"
+                    elif event.key == pygame.K_LEFT or event.key == ord('a'):
+                        change_to = "LEFT"
+                    elif event.key == pygame.K_UP or event.key == ord('w'):
+                        change_to = "UP"
+                    elif event.key == pygame.K_DOWNT or event.key == ord('s'):
+                        change_to = "DOWN"
+                    elif event.key == pygame.K_ESCAPE:
+                        pygame.quit()
+                        sys.exit()
+            return change_to
+
+        def refresh_screen(self):
+            pygame.display.flip()
+            Game.fps.tick(23)
+        def game_over(self):
+            go_font = pygame.font.SysFont('monaco', 72)
+            go_surf = go_font.render('Game over', True, self.red)
+            go_rect = go_surf.get_rect()
+            go_rect.midtop = (360, 15)
+            self.play_surface.blit(go_surf, go_rect)
+            pygame.display.flip()
+            time.sleep(3)
+            pygame.quit()
+            sys.exit()
+
         
 
 
-
-
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    menu(win)
-
-   
-
-
-    win.fill(background_color)
-    pygame.display.update()
