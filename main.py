@@ -23,7 +23,7 @@ class Game():
         
 
 
-        self.fps = pygame.time.Clock()
+        self.fps_controller = pygame.time.Clock()
         self.score = 0
 
     def set_surface_and_title(self):
@@ -51,7 +51,7 @@ class Game():
 
     def refresh_screen(self):
         pygame.display.flip()
-        Game.fps.tick(23)
+        game.fps_controller.tick(23)
     def game_over(self):
         go_font = pygame.font.SysFont('monaco', 72)
         go_surf = go_font.render('Game over', True, self.red)
