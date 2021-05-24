@@ -139,20 +139,15 @@ class Food():
 
     def draw_food(self, play_surface):
         pygame.draw.rect(play_surface,self.food_color, pygame.Rect(self.food_pos[0], self.food_pos[1],self.food_size_x, self.food_size_y))
-width = 720
-rows = 72
-def drawGrid(width, rows, frame):
-    blockSize = width//rows
-    x = 0
-    y = 0
-    for l in range(rows):
-        x += blockSize
-        y += blockSize
-        
-        pygame.draw.line(frame, con.black, (x,0), (x,width))
-        
-        pygame.draw.line(frame, con.black, (0,y), (width,y))
-
+def message_box(subject, content):
+    root = tk.Tk()
+    root.attributes("-topmost", True)
+    root.withdraw()
+    messagebox.showinfo(subject,content)
+    try:
+        root.destroy()
+    except:
+        pass  
 
 
 
@@ -162,7 +157,7 @@ snake = Snake(game.green)
 food = Food(game.black, game.scr_width, game.scr_height)
 game.set_surface_and_title()
 while True:
-    drawGrid(width,rows,game.play_surface)
+    
     
     
     snake.change_to = game.event_loop(snake.change_to)
