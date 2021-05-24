@@ -102,7 +102,7 @@ class Snake():
         if any((self.snake_head_position[0] > scr_width-10 or self.snake_head_position[0] < 0,self.snake_head_position[1] > scr_height-10 or self.snake_head_position[1] < 0)):
             game_over()
         for block in self.snake_body[1:]:
-            if (block[0] == self.snake_head_pos[0] and block[1] == self.snake_head_pos[1]):
+            if (block[0] == self.snake_head_position[0] and block[1] == self.snake_head_position[1]):
                 game_over()
 class Food():
     def __init__(self,food_color,scr_width,scr_height):
