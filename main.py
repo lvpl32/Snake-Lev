@@ -139,15 +139,7 @@ class Food():
 
     def draw_food(self, play_surface):
         pygame.draw.rect(play_surface,self.food_color, pygame.Rect(self.food_pos[0], self.food_pos[1],self.food_size_x, self.food_size_y))
-def message_box(subject, content):
-    root = tk.Tk()
-    root.attributes("-topmost", True)
-    root.withdraw()
-    messagebox.showinfo(subject,content)
-    try:
-        root.destroy()
-    except:
-        pass  
+
 
 
 
