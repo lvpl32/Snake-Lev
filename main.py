@@ -73,7 +73,7 @@ class Snake():
         self.change_to = self.movemenet_direction
 
     def change_directions(self):
-        if any((self.change_to == "RIGHT" and not self.movemenet_direction == "LEFT", self.change_to == "LEFT" and not self.movemenet_direction == "RIGHT",self.change_to == "UP" and not self.direction == "DOWN",self.change_to == "DOWN" and not self.direction == "UP")):
+        if any((self.change_to == "RIGHT" and not self.movemenet_direction == "LEFT", self.change_to == "LEFT" and not self.movemenet_direction == "RIGHT",self.change_to == "UP" and not self.movemenet_direction == "DOWN",self.change_to == "DOWN" and not self.movemenet_direction == "UP")):
             self.movemenet_direction = self.change_to
 
     def change_head_pos(self):
