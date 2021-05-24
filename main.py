@@ -139,10 +139,8 @@ class Food():
 
     def draw_food(self, play_surface):
         pygame.draw.rect(play_surface,self.food_color, pygame.Rect(self.food_pos[0], self.food_pos[1],self.food_size_x, self.food_size_y))
-
 width = 720
 rows = 72
-
 def drawGrid(width, rows, frame):
     blockSize = width//rows
     x = 0
