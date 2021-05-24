@@ -69,21 +69,21 @@ class Snake():
 
         self.snake_body = [[100,50],[90,50],[80,50]]
         self.snake_color = snake_color
-        self.movemenet_direction = "RIGHT"
-        self.change_to = self.movemenet_direction
+        self.movement_direction = "RIGHT"
+        self.change_to = self.movement_direction
 
     def change_directions(self):
-        if any((self.change_to == "RIGHT" and not self.movemenet_direction == "LEFT", self.change_to == "LEFT" and not self.movemenet_direction == "RIGHT",self.change_to == "UP" and not self.movemenet_direction == "DOWN",self.change_to == "DOWN" and not self.movemenet_directionw == "UP")):
-            self.movemenet_direction = self.change_to
+        if any((self.change_to == "RIGHT" and not self.movement_direction == "LEFT", self.change_to == "LEFT" and not self.movement_direction == "RIGHT",self.change_to == "UP" and not self.movement_direction == "DOWN",self.change_to == "DOWN" and not self.movement_direction == "UP")):
+            self.movement_direction = self.change_to
 
     def change_head_pos(self):
-        if self.movemenet_direction == "RIGHT":
+        if self.movement_direction == "RIGHT":
             self.snake_head_position[0] += 10
-        elif self.movemenet_direction == "LEFT":
+        elif self.movement_direction == "LEFT":
             self.snake_head_position[0] -= 10
-        elif self.movemenet_direction == "UP":
+        elif self.movement_direction == "UP":
             self.snake_head_position[1] -= 10
-        elif self.movemenet_direction == "DOWN":
+        elif self.movement_direction == "DOWN":
             self.snake_head_position[1] += 10
     def snake_body_movement(self,score,food_pos,scr_width,scr_height):
         self.snake_body.insert(0, list(self.snake_head_position))
