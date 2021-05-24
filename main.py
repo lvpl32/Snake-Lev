@@ -2,6 +2,7 @@ import pygame
 import sys
 import random
 import time
+import constants as con
 
 
 
@@ -127,9 +128,9 @@ def drawGrid(width, rows, frame):
         x += blockSize
         y += blockSize
         
-        pygame.draw.line(frame, (0,0,0), (x,0), (x,width))
+        pygame.draw.line(frame, con.black, (x,0), (x,width))
         
-        pygame.draw.line(frame, (0,0,0), (0,y), (width,y))
+        pygame.draw.line(frame, con.black, (0,y), (width,y))
 
 
 
@@ -142,7 +143,7 @@ snake = Snake(game.green)
 food = Food(game.black, game.scr_width, game.scr_height)
 game.set_surface_and_title()
 while True:
-    drawGrid(720, 72, game.play_surface)
+    drawGrid(width, rows, game.play_surface)
     snake.change_to = game.event_loop(snake.change_to)
 
     snake.change_directions()
