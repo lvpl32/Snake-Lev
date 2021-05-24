@@ -48,6 +48,9 @@ class Game():
                     pygame.quit()
                     sys.exit()
         return change_to
+    
+
+
 
     def refresh_screen(self):
         pygame.display.flip()
@@ -59,9 +62,7 @@ class Game():
         go_rect.midtop = (360, 15)
         self.play_surface.blit(go_surf, go_rect)
         pygame.display.flip()
-        time.sleep(3)
-        pygame.quit()
-        sys.exit()
+        
 
 class Snake():
     def __init__(self, snake_color):
