@@ -69,7 +69,7 @@ class Snake():
         self.change_to = self.movemenet_direction
 
     def change_directions(self):
-        if any((self.change.to == "RIGHT" and not self.movemenet_direction == "LEFT", self.change_to == "LEFT" and not self.movemenet_direction == "RIGHT",self.change_to == "UP" and not self.direction == "DOWN",self.change_to == "DOWN" and not self.direction == "UP")):
+        if any((self.change_to == "RIGHT" and not self.movemenet_direction == "LEFT", self.change_to == "LEFT" and not self.movemenet_direction == "RIGHT",self.change_to == "UP" and not self.direction == "DOWN",self.change_to == "DOWN" and not self.direction == "UP")):
             self.movemenet_direction = self.change_to
 
     def change_head_pos(self):
@@ -111,7 +111,7 @@ class Food():
         pygame.draw.rect(play_surface,self.food_color, pygame.Rect(self.food_pos[0], self.food_pos[1],self.food_size_x, self.food_size_y))
 game = Game()
 snake = Snake(game.green)
-food = Food(game.brown, game.scr_width, game.scr_height)
+food = Food(game.black, game.scr_width, game.scr_height)
 
 while True:
     snake.change_to = game.event_loop(snake.change_to)
