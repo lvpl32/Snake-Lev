@@ -62,7 +62,8 @@ class Game():
         go_rect.midtop = (360, 15)
         self.play_surface.blit(go_surf, go_rect)
         pygame.display.flip()
-        
+        pygame.quit()
+        sys.exit()
 
 class Snake():
     def __init__(self, snake_color):
