@@ -2,6 +2,8 @@ import pygame
 import sys
 import random
 import time
+
+from pygame import draw
 import constants as con
 import tkinter as tk
 from tkinter import messagebox
@@ -34,17 +36,6 @@ class Game():
         self.play_surface = pygame.display.set_mode((self.scr_width, self.scr_height))
         pygame.display.set_caption('Snake')
     
-    def drawGrid(width, rows, frame):
-        blockSize = width//rows
-        x = 0
-        y = 0
-        for l in range(rows):
-            x += blockSize
-            y += blockSize
-        
-            pygame.draw.line(frame, con.black, (x,0), (x,width))
-        
-            pygame.draw.line(frame, con.black, (0,y), (width,y))
 
 
     
@@ -149,9 +140,20 @@ class Food():
     def draw_food(self, play_surface):
         pygame.draw.rect(play_surface,self.food_color, pygame.Rect(self.food_pos[0], self.food_pos[1],self.food_size_x, self.food_size_y))
 
+width = 720
+rows = 72
 
-
-
+def drawGrid(width, rows, frame):
+    blockSize = width//rows
+    x = 0
+    y = 0
+    for l in range(rows):
+        x += blockSize
+        y += blockSize
+        
+        pygame.draw.line(frame, con.black, (x,0), (x,width))
+        
+        pygame.draw.line(frame, con.black, (0,y), (width,y))
 
 
 
@@ -162,7 +164,8 @@ snake = Snake(game.green)
 food = Food(game.black, game.scr_width, game.scr_height)
 game.set_surface_and_title()
 while True:
-    game.drawGrid(game.rows,game.play_surface)
+    drawGrid(width,rows,game.play_surface)
+    
     
     snake.change_to = game.event_loop(snake.change_to)
 
