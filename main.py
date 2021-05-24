@@ -80,6 +80,7 @@ class Game():
         self.play_surface.blit(go_surf, go_rect)
         self.show_score(0)
         pygame.display.flip()
+        time.sleep(3)
         pygame.quit()
         sys.exit()
 
