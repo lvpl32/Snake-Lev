@@ -36,7 +36,7 @@ class Game():
 
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT or event.key == ord('w'):
+                if event.key == pygame.K_RIGHT or event.key == ord('d'):
                         change_to = "RIGHT"
                 elif event.key == pygame.K_LEFT or event.key == ord('a'):
                         change_to = "LEFT"
