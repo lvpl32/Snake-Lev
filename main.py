@@ -170,6 +170,7 @@ while True:
     snake.draw_snake(game.play_surface, game.white)
     food.draw_food(game.play_surface)
     snake.check_for_boundaries(game.game_over,game.scr_width,game.scr_height)
+    game.show_score()
     game.refresh_screen()
 
 
