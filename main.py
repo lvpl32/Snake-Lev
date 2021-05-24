@@ -11,7 +11,7 @@ pygame.init()
 class Game():
     def __init__(self):
         self.scr_width = 720
-        self.scr_height = 460
+        self.scr_height = 720
 
 
 
@@ -115,6 +115,15 @@ class Food():
 
     def draw_food(self, play_surface):
         pygame.draw.rect(play_surface,self.food_color, pygame.Rect(self.food_pos[0], self.food_pos[1],self.food_size_x, self.food_size_y))
+
+
+
+
+
+
+
+
+
 game = Game()
 snake = Snake(game.green)
 food = Food(game.black, game.scr_width, game.scr_height)
