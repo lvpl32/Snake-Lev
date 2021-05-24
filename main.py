@@ -20,13 +20,17 @@ class Game():
         self.white = (255,255,255)
         self.black = (0,0,0)
 
+        
+
 
         self.fps = pygame.time.Clock()
         self.score = 0
 
-    def surface(self):
-        self.play_surface = pygame.display.set_mode((self.scr_width,self.scr_height))
+    def set_surface_and_title(self):
+        self.play_surface = pygame.display.set_mode((self.scr_width, self.scr_height))
         pygame.display.set_caption('Snake')
+
+    
 
     def event_loop(self,change_to):
 
@@ -112,7 +116,7 @@ class Food():
 game = Game()
 snake = Snake(game.green)
 food = Food(game.black, game.scr_width, game.scr_height)
-
+game.set_surface_and_title()
 while True:
     snake.change_to = game.event_loop(snake.change_to)
 
